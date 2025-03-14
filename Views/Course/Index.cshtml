@@ -1,0 +1,37 @@
+@model IEnumerable<Course>
+
+@{
+    ViewData["Title"] = "Course List";
+}
+
+<h1 style="color: blue;">Kurs Listesi</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <a asp-controller="Course" asp-action="CreateCourse" class="btn btn-sm btn-success mb-3">Kurs Ekle</a>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: var(--dynamic-size);">@Html.DisplayNameFor(m=>m.CourseName)</th>
+                    <th style="width: var(--dynamic-size);">@Html.DisplayNameFor(m=>m.Educator.EducatorFullName)</th>
+                    <th style="width: 200px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var course in Model){
+                    <tr>
+                        <td>@Html.DisplayFor(m=>course.CourseName)</td>
+                        <td>@Html.DisplayFor(m=>course.Educator.EducatorFullName)</td>
+                        <td>
+                            <a asp-controller="Course" asp-action="CourseDetails" asp-route-id="@course.CourseId" class="btn btn-sm btn-info" style="width: 75px;">Detaylar</a>
+                            <a asp-controller="Course" asp-action="DeleteCourse" asp-route-id="@course.CourseId" class="btn btn-sm btn-danger" style="width: 75px;">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4"></div>
+</div>

@@ -1,0 +1,45 @@
+@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h1 style="color:yellowgreen;">Öğrenci Listesi</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        
+        <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-sm btn-success mb-3">Öğrenci Ekle</a>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">@Html.DisplayNameFor(m => m.StudentId)</th>
+                    <th>@Html.DisplayNameFor(m => m.StudentFirstName)</th>
+                    <th>@Html.DisplayNameFor(m => m.StudentLastName)</th>
+                    <th>@Html.DisplayNameFor(m => m.StudentEmail)</th>
+                    <th>@Html.DisplayNameFor(m => m.StudentPhone)</th>
+                    <th style="width: 200px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var student in Model){
+                    <tr>
+                        <td>@Html.DisplayFor(m=>student.StudentId)</td>
+                        <td>@Html.DisplayFor(m=>student.StudentFirstName)</td>
+                        <td>@Html.DisplayFor(m=>student.StudentLastName)</td>
+                        <td>@Html.DisplayFor(m=>student.StudentEmail)</td>
+                        <td>@Html.DisplayFor(m=>student.StudentPhone)</td>
+                        <td>
+                            <a asp-controller="Student" asp-action="StudentDetails" asp-route-id="@student.StudentId" class="btn btn-sm btn-info" style="width: 75px;">Detaylar</a>
+                            <a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId" class="btn btn-sm btn-danger" style="width: 75px;">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4"></div>
+</div>
+

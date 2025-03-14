@@ -1,0 +1,37 @@
+@model Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h1 style="color:yellowgreen;">Öğrenci Bilgisi Düzenle</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Student" asp-action="EditStudent" method="post">
+            <input type="hidden" asp-for="StudentId">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3 w-50">
+                <label asp-for="StudentFirstName" class="form-label"></label>
+                <input asp-for="StudentFirstName" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="StudentLastName" class="form-label"></label>
+                <input asp-for="StudentLastName" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="StudentEmail" class="form-label"></label>
+                <input asp-for="StudentEmail" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="StudentPhone" class="form-label"></label>
+                <input asp-for="StudentPhone" class="form-control">
+            </div>
+        
+            <button type="submit" class="btn btn-sm btn-outline-success">Kaydet</button>
+            <a asp-controller="Student" asp-action="Index" class="btn btn-sm btn-danger">İptal</a>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>

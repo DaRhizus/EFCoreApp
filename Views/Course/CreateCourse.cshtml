@@ -1,0 +1,31 @@
+@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<h1 style="color:blue;">Kurs Ekle</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Course" asp-action="CreateCourse" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3 w-50">
+                <label asp-for="CourseName" class="form-label"></label>
+                <input asp-for="CourseName" class="form-control">
+            </div>
+            <div class="input-group mb-3 w50">
+                <input type="file" name="ImageFile" id="ImageFile" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="EducatorId" class="form-label"></label>
+                <select asp-for="EducatorId" class="form-select" asp-items="ViewBag.Educators">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Kaydet</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>

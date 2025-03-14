@@ -1,0 +1,38 @@
+@model IEnumerable<Educator>
+
+@{
+    ViewData["Title"] = "Educators";
+}
+
+<h1 style="color: red;">Eğitmenler</h1>
+<hr>
+<a asp-controller="Educator" asp-action="CreateEducator" class="btn btn-sm btn-success mb-3">Öğretmen Ekle</a>
+
+<div class="row">
+    <div class="col-8">
+        <table class="table table-bordered">
+            <thead>
+                <th>@Html.DisplayNameFor(m=>m.EducatorId)</th>
+                <th>@Html.DisplayNameFor(m=>m.EducatorFirstName)</th>
+                <th>@Html.DisplayNameFor(m=>m.EducatorLastName)</th>
+                <th>@Html.DisplayNameFor(m=>m.EducatorEmail)</th>
+                <th style="width: 200px;"></th>
+            </thead>
+            <tbody>
+                @foreach(var educator in Model){
+                    <tr>
+                        <td>@Html.DisplayFor(m=>educator.EducatorId)</td>
+                        <td>@Html.DisplayFor(m=>educator.EducatorFirstName)</td>
+                        <td>@Html.DisplayFor(m=>educator.EducatorLastName)</td>
+                        <td>@Html.DisplayFor(m=>educator.EducatorEmail)</td>
+                        <td>
+                            <a asp-controller="Educator" asp-action="EducatorDetails" class="btn btn-sm btn-info" asp-route-id="@educator.EducatorId" style="width: 75px;">Detaylar</a>
+                            <a asp-controller="Educator" asp-action="DeleteEducator" class="btn btn-sm btn-danger" asp-route-id="@educator.EducatorId" asp style="width: 75px;">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-4"></div>
+    </div>
+</div>

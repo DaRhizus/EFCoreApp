@@ -1,0 +1,29 @@
+@model Course
+
+@{
+    ViewData["Title"] = "Kurs Sil";
+}
+
+<h1 style="color:blue;">Bu Kursu Silmek İstediğinizden Emin Misiniz?</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Course" asp-action="DeleteCourse" method="post">
+            <input type="hidden" asp-for="CourseId">    
+            <div class="card my-2 w-50 text-center">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <img src="~/img/@Model.CourseImage" class="image-fluid" alt="">
+                        <input type="hidden" asp-for="CourseImage">    
+                    </li>
+                    <li class="list-group-item">Ad: @Html.DisplayFor(m=>Model.CourseName)</li>
+                </ul>
+            </div>
+            <hr>
+            <a asp-controller="Course" asp-action="Index" class="btn btn-sm btn-primary">İptal</a>
+            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>

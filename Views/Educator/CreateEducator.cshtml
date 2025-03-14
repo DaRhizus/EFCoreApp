@@ -1,0 +1,21 @@
+@model Educator
+@{
+    ViewData["Title"] = "Create Educator";
+}
+
+<form asp-controller="Educator" asp-action="CreateEducator" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3 w-50">
+        <label asp-for="EducatorFirstName" class="form-label"></label>
+        <input asp-for="EducatorFirstName" class="form-control">
+    </div>
+    <div class="mb-3 w-50">
+        <label asp-for="EducatorLastName" class="form-label"></label>
+        <input asp-for="EducatorLastName" class="form-control">
+    </div>
+    <div class="mb-3 w-50">
+        <label asp-for="EducatorEmail" class="form-label"></label>
+        <input asp-for="EducatorEmail" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-sm btn-outline-success">Kaydet</button>
+</form>

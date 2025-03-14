@@ -1,0 +1,32 @@
+@model IEnumerable<CourseApply>
+
+@{
+    ViewData["Title"] = "Course Application List";
+}
+
+<h1 style="color: chocolate">Kurs Kayıtları</h1>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <a asp-controller="CourseApply" asp-action="CreateCourseApply" class="btn btn-sm btn-success mb-3">Kayıt Ekle</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">@Html.DisplayNameFor(m => m.CourseApplyId)</th>
+                    <th>@Html.DisplayNameFor(m => m.Student.StudentFullName)</th>
+                    <th>@Html.DisplayNameFor(m => m.Course.CourseName)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model){
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem=>item.CourseApplyId)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Student.StudentFullName)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Course.CourseName)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4"></div>
+</div>

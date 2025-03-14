@@ -1,0 +1,32 @@
+@model Educator
+
+@{
+    ViewData["Title"] = Model.EducatorFirstName;
+}
+
+<h1 style="color: red;">Eğitmen Detayları</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Educator" asp-action="EditEducator" method="post">
+            <input type="hidden" asp-for="EducatorId">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3 w-50">
+                <label asp-for="EducatorFirstName" class="form-label"></label>
+                <input asp-for="EducatorFirstName" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="EducatorLastName" class="form-label"></label>
+                <input asp-for="EducatorLastName" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label asp-for="EducatorEmail" class="form-label"></label>
+                <input asp-for="EducatorEmail" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-sm btn-outline-success">Kaydet</button>
+            <a asp-controller="Educator" asp-action="Index" class="btn btn-sm btn-danger">İptal</a>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>

@@ -1,0 +1,34 @@
+@model Course
+
+@{
+    ViewData["Title"] = Model.CourseName;
+}
+
+<h1 style="color:blue;">Kurs Detayları</h1>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <div class="card my-2 w-50 text-center">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <img src="~/img/@Model.CourseImage" class="img-fluid" alt="">
+                </li>
+                <li class="list-group-item">Kurs Adı: @Html.DisplayFor(m=>Model.CourseName)</li>
+                <li class="list-group-item">Kurs Eğitmeni: @Html.DisplayFor(m=>Model.Educator.EducatorFullName)</li>
+            </ul>
+        </div>
+        <hr>
+        <a asp-controller="Course" asp-action="Index" class="btn btn-sm btn-primary">Kursları Listele</a>
+        <a asp-controller="Course" asp-action="EditCourse" asp-route-id="@Model.CourseId" class="btn btn-sm btn-warning">Kursu Düzenle</a>
+    </div>
+        <div class="col-4">
+            <h4>Öğrenciler</h4>
+            <hr>
+            <ul>
+                @foreach(var item in Model.CourseApplies){
+                    <li>@item.Student.StudentFullName</li>
+                }
+            </ul>
+        </div>
+    </div>
+    

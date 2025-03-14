@@ -1,0 +1,28 @@
+@model Student
+
+@{
+    ViewData["Title"] = "Öğrenci Sil";
+}
+
+<h1 style="color:yellowgreen;">Bu Öğrenciyi Silmek İstediğinizden Emin Misiniz?</h1>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Student" asp-action="DeleteStudent" method="post">
+            <input type="hidden" asp-for="StudentId">    
+            <div class="card my-2 w-50 text-center">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Ad: @Html.DisplayFor(m=>Model.StudentFirstName)</li>
+                    <li class="list-group-item">Soyad: @Html.DisplayFor(m=>Model.StudentLastName)</li>
+                    <li class="list-group-item">E-posta: @Html.DisplayFor(m=>Model.StudentEmail)</li>
+                    <li class="list-group-item">Telefon: @Html.DisplayFor(m=>Model.StudentPhone)</li>
+                </ul>
+            </div>
+            <hr>
+            <a asp-controller="Student" asp-action="Index" class="btn btn-sm btn-primary">İptal</a>
+            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
