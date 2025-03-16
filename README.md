@@ -2,4 +2,4 @@
 A .NET and EFCore Course App
 
 
-Rewrite Connection String based on your database.
+Rewrite Connection String in appsettingsDevelopment.json based on your database.
