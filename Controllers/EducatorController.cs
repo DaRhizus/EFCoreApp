@@ -88,5 +88,42 @@ namespace EFCoreApp.Controllers
 
             return View(educator);
         }
+
+        public async Task<IActionResult> DeleteEducator(int? id){
+            if(id==null){
+                return NotFound();
+            }
+
+            var educator = await _context
+                                ._educators
+                                .Include(x=>x.Courses)
+                                .FirstOrDefaultAsync(x => x.EducatorId == id);
+
+            if(educator == null){
+                return NotFound();
+            }
+
+            return View(educator);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteEducator(int? id, int EducatorId){
+            if(id == null){
+                return NotFound();
+            }
+
+            var educator = await _context
+                                ._educators
+                                .Include(x=>x.Courses)
+                                .FirstOrDefaultAsync(x=>x.EducatorId == id);
+
+            if(id!=EducatorId){
+                return NotFound();
+            }
+
+            _context._educators.Remove(educator);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

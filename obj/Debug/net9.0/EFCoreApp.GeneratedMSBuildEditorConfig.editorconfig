@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0b3JcQ3JlYXRlRWR1Y2F0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/bugra/Desktop/DOTNET/EFCoreApp/Views/Educator/DeleteEducator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0b3JcRGVsZXRlRWR1Y2F0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/bugra/Desktop/DOTNET/EFCoreApp/Views/Educator/EditEducator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0b3JcRWRpdEVkdWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
